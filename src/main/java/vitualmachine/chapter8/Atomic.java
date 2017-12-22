@@ -4,7 +4,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicLong;
-import java.util.concurrent.atomic.LongAdder;
+//import java.util.concurrent.atomic.LongAdder;
 
 /*
  * LongAddr 没有看出来比Atomic有优势啊？
@@ -13,8 +13,8 @@ public class Atomic {
 	private static final int MAX_THREADS=3;//线程数
 	private static final int TASK_COUNT=3;//任务数
 	private static final int TARGET_COUNT=100000000;//目标总数
-	
-	private LongAdder longAdder = new LongAdder();
+	//jdk8的
+	//private LongAdder longAdder = new LongAdder();
 	private AtomicLong acount = new AtomicLong(0L);
 	private long count = 0;
 	
@@ -112,15 +112,15 @@ public class Atomic {
 		}
 
 		public void run() {
-			long v = longAdder.sum();
-			while (v < TARGET_COUNT) {
-				longAdder.increment();
-				v = longAdder.sum();
-			}
-			long endtime = System.currentTimeMillis();
-			System.out.println("LongAddrThread spend: " + (endtime - starttime) + "ms"
-					+ "  v=" + v);
-			cdladdr.countDown();
+//			long v = longAdder.sum();
+//			while (v < TARGET_COUNT) {
+//				longAdder.increment();
+//				v = longAdder.sum();
+//			}
+//			long endtime = System.currentTimeMillis();
+//			System.out.println("LongAddrThread spend: " + (endtime - starttime) + "ms"
+//					+ "  v=" + v);
+//			cdladdr.countDown();
 		}
 		
 	}
