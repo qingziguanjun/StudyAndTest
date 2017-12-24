@@ -33,5 +33,14 @@
 	    <version>2.2.1</version>
 	  </dependency>   
 	  <!-- quartz maven依赖结束 -->
+	  <!--rabbitmq 依赖开始-->
+	  
+	  <dependency>
+			<groupId>com.rabbitmq</groupId>
+			<artifactId>amqp-client</artifactId>
+			<version>3.4.0</version>
+		</dependency>
+	  
+	  <!--rabbitmq 依赖结束 -->
   </dependencies>
 </project>
