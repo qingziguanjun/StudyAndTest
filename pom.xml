@@ -41,6 +41,8 @@
 			<version>3.4.0</version>
 		</dependency>
 	  
-	  <!--rabbitmq 依赖结束 -->
+	  <!--rabbitmq 依赖结束 -->	  
+	  
+
   </dependencies>
 </project>

@@ -1,0 +1,93 @@
+!SESSION 2018-11-09 15:58:33.325 -----------------------------------------------
+eclipse.buildId=4.4.2.M20150204-1700
+java.version=1.8.0_161
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.jboss.tools.feedhenry.ui 4 0 2018-11-09 15:58:37.430
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.jboss.tools.feedhenry.ui [1045]
+  Unresolved requirement: Require-Bundle: org.jboss.tools.vpe.cordovasim.eclipse; bundle-version="3.6.2"
+    -> Bundle-SymbolicName: org.jboss.tools.vpe.cordovasim.eclipse; bundle-version="3.6.2.Final-v20150325-0456-B90"; singleton:="true"
+       org.jboss.tools.vpe.cordovasim.eclipse [1140]
+         No resolution report for the bundle.  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.jboss.tools.vpe.cordovasim.eclipse [osgi.identity; osgi.identity="org.jboss.tools.vpe.cordovasim.eclipse"; type="osgi.bundle"; version:Version="3.6.2.Final-v20150325-0456-B90"; singleton:="true"] because it is exposed to package 'org.eclipse.jetty.server.session' from resources org.eclipse.jetty.server [osgi.identity; osgi.identity="org.eclipse.jetty.server"; type="osgi.bundle"; version:Version="9.2.13.v20150730"] and org.eclipse.jetty.server [osgi.identity; osgi.identity="org.eclipse.jetty.server"; type="osgi.bundle"; version:Version="8.1.16.v20140903"] via two dependency chains.
+
+Chain 1:
+  org.jboss.tools.vpe.cordovasim.eclipse [osgi.identity; osgi.identity="org.jboss.tools.vpe.cordovasim.eclipse"; type="osgi.bundle"; version:Version="3.6.2.Final-v20150325-0456-B90"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.eclipse.jetty.server)(bundle-version>=8.1.3))
+     |
+    provide: osgi.wiring.bundle: org.eclipse.jetty.server
+  org.eclipse.jetty.server [osgi.identity; osgi.identity="org.eclipse.jetty.server"; type="osgi.bundle"; version:Version="9.2.13.v20150730"]
+
+Chain 2:
+  org.jboss.tools.vpe.cordovasim.eclipse [osgi.identity; osgi.identity="org.jboss.tools.vpe.cordovasim.eclipse"; type="osgi.bundle"; version:Version="3.6.2.Final-v20150325-0456-B90"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.eclipse.jetty.servlet)(bundle-version>=8.1.3))
+     |
+    provide: osgi.wiring.bundle; bundle-version:Version="8.1.16.v20140903"; osgi.wiring.bundle="org.eclipse.jetty.servlet"
+  org.eclipse.jetty.servlet [osgi.identity; osgi.identity="org.eclipse.jetty.servlet"; type="osgi.bundle"; version:Version="8.1.16.v20140903"]
+    import: (&(osgi.wiring.package=org.eclipse.jetty.server)(&(version>=8.1.0)(!(version>=9.0.0))))
+     |
+    export: osgi.wiring.package: org.eclipse.jetty.server; uses:=org.eclipse.jetty.server.session
+    export: osgi.wiring.package=org.eclipse.jetty.server.session
+  org.eclipse.jetty.server [osgi.identity; osgi.identity="org.eclipse.jetty.server"; type="osgi.bundle"; version:Version="8.1.16.v20140903"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.jboss.tools.vpe.cordovasim.eclipse 4 0 2018-11-09 15:58:38.276
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.jboss.tools.vpe.cordovasim.eclipse [1140]
+  Bundle was not resolved because of a uses contraint violation.
+  org.osgi.service.resolver.ResolutionException: Uses constraint violation. Unable to resolve resource org.jboss.tools.vpe.cordovasim.eclipse [osgi.identity; osgi.identity="org.jboss.tools.vpe.cordovasim.eclipse"; type="osgi.bundle"; version:Version="3.6.2.Final-v20150325-0456-B90"; singleton:="true"] because it is exposed to package 'org.eclipse.jetty.server.session' from resources org.eclipse.jetty.server [osgi.identity; osgi.identity="org.eclipse.jetty.server"; type="osgi.bundle"; version:Version="9.2.13.v20150730"] and org.eclipse.jetty.server [osgi.identity; osgi.identity="org.eclipse.jetty.server"; type="osgi.bundle"; version:Version="8.1.16.v20140903"] via two dependency chains.
+
+Chain 1:
+  org.jboss.tools.vpe.cordovasim.eclipse [osgi.identity; osgi.identity="org.jboss.tools.vpe.cordovasim.eclipse"; type="osgi.bundle"; version:Version="3.6.2.Final-v20150325-0456-B90"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.eclipse.jetty.server)(bundle-version>=8.1.3))
+     |
+    provide: osgi.wiring.bundle: org.eclipse.jetty.server
+  org.eclipse.jetty.server [osgi.identity; osgi.identity="org.eclipse.jetty.server"; type="osgi.bundle"; version:Version="9.2.13.v20150730"]
+
+Chain 2:
+  org.jboss.tools.vpe.cordovasim.eclipse [osgi.identity; osgi.identity="org.jboss.tools.vpe.cordovasim.eclipse"; type="osgi.bundle"; version:Version="3.6.2.Final-v20150325-0456-B90"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.eclipse.jetty.servlet)(bundle-version>=8.1.3))
+     |
+    provide: osgi.wiring.bundle; bundle-version:Version="8.1.16.v20140903"; osgi.wiring.bundle="org.eclipse.jetty.servlet"
+  org.eclipse.jetty.servlet [osgi.identity; osgi.identity="org.eclipse.jetty.servlet"; type="osgi.bundle"; version:Version="8.1.16.v20140903"]
+    import: (&(osgi.wiring.package=org.eclipse.jetty.server)(&(version>=8.1.0)(!(version>=9.0.0))))
+     |
+    export: osgi.wiring.package: org.eclipse.jetty.server; uses:=org.eclipse.jetty.server.session
+    export: osgi.wiring.package=org.eclipse.jetty.server.session
+  org.eclipse.jetty.server [osgi.identity; osgi.identity="org.eclipse.jetty.server"; type="osgi.bundle"; version:Version="8.1.16.v20140903"]
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.eclipse.ui 2 0 2018-11-09 15:59:25.249
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2018-11-09 15:59:25.249
+!MESSAGE Commands should really have a category: plug-in='net.sf.eclipsecs.ui', id='CheckstylePlugin.PurgeCaches', categoryId='net.sf.eclipsecs'
+
+!ENTRY org.eclipse.ui 2 0 2018-11-09 15:59:26.013
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2018-11-09 15:59:26.013
+!MESSAGE Commands should really have a category: plug-in='net.sf.eclipsecs.ui', id='CheckstylePlugin.PurgeCaches', categoryId='net.sf.eclipsecs'
+
+!ENTRY org.eclipse.mylyn.tasks.core 4 0 2018-11-09 15:59:29.667
+!MESSAGE Unexpected error while loading repository template extensions
+!SUBENTRY 1 org.eclipse.mylyn.tasks.core 4 0 2018-11-09 15:59:29.667
+!MESSAGE Could not load repository template extension contributed by 'org.jboss.tools.common.mylyn' with connectorKind 'jira'
