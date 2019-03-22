@@ -1,12 +1,14 @@
 package algorithm.sort.gaoji;
 
-import java.awt.print.Printable;
 
 public class MergeSort {
+	public static int count = 0;
 	public static void main(String[] args) {
-		int[] a = {3,5,7,2,54,3,4};
+		//int[] a = {3,5,7,2,54,3,4};
+		int[] a = {1,2,3};
 		merge_sort(a, a.length);
 		PrintArray(a);
+		System.out.println(count);
 	}
 
 	/**
@@ -46,9 +48,13 @@ public class MergeSort {
 		int k = 0;
 		int[] temp = new int[r - p + 1];
 		while(i <= q && j <= r){
-			if(a[i] < a[j]){
+			if(a[i] <= a[j]){
 				temp[k++] = a[i++];
 			}else{
+				
+				// a[i]比 a[j]大，那么 a[i]后面的都比a[j]大，一共的个数是 q-i+1 
+				// i是从 p到q的。
+				count += (q-i+1);
 				temp[k++] = a[j++];
 			}
 		}
